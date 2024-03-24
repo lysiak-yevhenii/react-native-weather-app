@@ -6,7 +6,6 @@ import UpcomingWeather from './src/components/UpcomingWeather'
 const App = () => {
   return (
     <View style={styles.containter}>
-      <CurrentWeather />
       <UpcomingWeather />
     </View>
   )
@@ -14,7 +13,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   containter: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'royalblue'
   }
 })
 
