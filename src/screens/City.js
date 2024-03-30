@@ -8,7 +8,6 @@ import {
   ImageBackground,
   View
 } from 'react-native'
-import { Feather } from '@expo/vector-icons'
 import IconText from '../components/IconText'
 
 const City = () => {
@@ -22,7 +21,8 @@ const City = () => {
     populationWrapper,
     populationText,
     riseSetWrapper,
-    riseSetText
+    riseSetText,
+    rowLayout
   } = styles
 
   return (
@@ -33,7 +33,7 @@ const City = () => {
       >
         <Text style={[cityName, cityText]}>London</Text>
         <Text style={[countryName, cityText]}>UK</Text>
-        <View style={populationWrapper}>
+        <View style={[populationWrapper, rowLayout]}>
           <IconText
             iconName={'user'}
             iconColor={'red'}
@@ -41,7 +41,7 @@ const City = () => {
             bodyTextStyles={populationText}
           />
         </View>
-        <View style={riseSetWrapper}>
+        <View style={[riseSetWrapper, rowLayout]}>
           <IconText
             iconName={'sunrise'}
             iconColor={'white'}
@@ -85,8 +85,6 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   populationWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30
   },
@@ -96,14 +94,16 @@ const styles = StyleSheet.create({
     color: 'red'
   },
   riseSetWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-around',
     marginTop: 40
   },
   riseSetText: {
     fontSize: 20,
     color: 'white'
+  },
+  rowLayout: {
+    flexDirection: 'row',
+    alignItems: 'cenater'
   }
 })
 
