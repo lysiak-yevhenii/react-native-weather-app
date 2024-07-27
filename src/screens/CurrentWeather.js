@@ -23,36 +23,36 @@ const CurrentWeather = ({ weatherData }) => {
     weather
   } = weatherData
 
-  const weatherCondition = weather[0].main
+  const weatherCondition = weather[0]?.main
 
   return (
     <SafeAreaView
       style={[
         wrapper,
-        { backgroundColor: weatherType[weatherCondition].backgroundColor }
+        { backgroundColor: weatherType[weatherCondition]?.backgroundColor }
       ]}
     >
       <View style={container}>
         <Feather
-          name={weatherType[weatherCondition].icon}
+          name={weatherType[weatherCondition]?.icon}
           size={100}
           color="white"
         />
         <Text style={temp}>{tempo}</Text>
-        <Text style={feels}>{`Feels like ${feels_like}`}</Text>
+        <Text style={feels}>{`Feels like ${feels_like}°`}</Text>
         <RowText
           containerStyle={highLowWrapper}
           messageOneStyles={highLow}
-          messageOne={`High: ${temp_max}`}
+          messageOne={`High: ${temp_max}° `}
           messageTwoStyles={highLow}
-          messageTwo={`Low: ${temp_min}`}
+          messageTwo={`Low: ${temp_min}°`}
         />
         <RowText
           containerStyle={boddyWrapper}
           messageOneStyles={description}
-          messageOne={weather[0].description}
+          messageOne={weather[0]?.description}
           messageTwoStyles={message}
-          messageTwo={weatherType[weatherCondition].message}
+          messageTwo={weatherType[weatherCondition]?.message}
         />
       </View>
     </SafeAreaView>
@@ -91,10 +91,10 @@ const styles = StyleSheet.create({
     margintop: 40
   },
   description: {
-    fontSize: 48
+    fontSize: 43
   },
   message: {
-    fontSize: 40
+    fontSize: 25
   }
 })
 

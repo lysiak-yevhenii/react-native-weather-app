@@ -3,13 +3,14 @@ import { ActivityIndicator, View, StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import Tabs from './src/components/Tabs'
 import { useGetWeather } from './src/hooks/useGetWeather'
+import ErrorItem from './src/components/ErrorItem'
 
 const App = () => {
   const [loading, error, weatherData] = useGetWeather()
 
   console.log(loading, error, weatherData)
 
-  if (weatherData && weatherData.list) {
+  if (weatherData && weatherData.list && !loading) {
     return (
       <NavigationContainer>
         <Tabs weather={weatherData} />
@@ -19,7 +20,11 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator size={'large'} color={'blue'}></ActivityIndicator>
+      {error ? (
+        <ErrorItem />
+      ) : (
+        <ActivityIndicator size={'large'} color={'blue'}></ActivityIndicator>
+      )}
     </View>
   )
   // return (<Counter></Counter>)
