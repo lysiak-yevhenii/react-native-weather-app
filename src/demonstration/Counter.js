@@ -10,7 +10,7 @@ const Counter = () => {
     return () => {
       console.log('useEffect cleanup')
     }
-  }, [count])
+  }, [count, newCount])
 
   return (
     <View style={styles.container}>

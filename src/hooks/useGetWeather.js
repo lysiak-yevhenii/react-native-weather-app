@@ -4,7 +4,6 @@ import { WEATHER_APP_KEY } from '@env'
 
 export const useGetWeather = () => {
   const [loading, setLoading] = useState(true)
-  const [location, setLocation] = useState(null)
   const [weatherData, setWeatherData] = useState([])
   const [error, setError] = useState(null)
   const [lat, setLat] = useState([])
@@ -26,7 +25,7 @@ export const useGetWeather = () => {
   }
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync()
       if (status !== 'granted') {
         setError('permission to access location was denied')
